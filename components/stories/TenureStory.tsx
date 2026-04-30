@@ -12,7 +12,7 @@ const tenureData = [
     { years: '11+ yrs', churnVolume: 15 }
 ];
 
-export default function TenureStory() {
+export default function TenureStory({ data }: { data?: any[] }) {
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -22,9 +22,9 @@ export default function TenureStory() {
             <p className="text-sm text-neutral-500 mb-6 line-clamp-2">
                 Most attrition happens in the first 0-4 years. Retention stabilizes significantly after crossing the 5-year mark.
             </p>
-            <div className="h-64 mt-auto">
+            <div className="h-64 mt-auto w-full min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={tenureData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <BarChart data={data || tenureData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} />
                         <XAxis dataKey="years" tick={{ fontSize: 12 }} />
                         <YAxis tick={{ fontSize: 12 }} />

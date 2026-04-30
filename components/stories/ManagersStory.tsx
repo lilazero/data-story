@@ -11,7 +11,7 @@ const managerData = [
     { managerYears: '6+ yrs', risk: 7.9 }
 ];
 
-export default function ManagersStory() {
+export default function ManagersStory({ data }: { data?: any[] }) {
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -21,9 +21,9 @@ export default function ManagersStory() {
             <p className="text-sm text-neutral-500 mb-6 line-clamp-2">
                 Employees are highly vulnerable to leaving early in a manager's tenure (0-2 years). Stability breeds loyalty.
             </p>
-            <div className="h-64 mt-auto">
+            <div className="h-64 mt-auto w-full min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={managerData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <LineChart data={data || managerData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} />
                         <XAxis dataKey="managerYears" tick={{ fontSize: 12 }} />
                         <YAxis unit="%" tick={{ fontSize: 12 }} />

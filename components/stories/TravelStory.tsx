@@ -10,7 +10,7 @@ const travelData = [
     { name: 'Travel Frequently', attritionRate: 24.9 }
 ];
 
-export default function TravelStory() {
+export default function TravelStory({ data }: { data?: any[] }) {
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -20,9 +20,9 @@ export default function TravelStory() {
             <p className="text-sm text-neutral-500 mb-6 line-clamp-2">
                 "Road warriors" leave at a substantially higher rate than non-travelers. Travel fatigue is real.
             </p>
-            <div className="h-64 mt-auto">
+            <div className="h-64 mt-auto w-full min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={travelData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <LineChart data={data || travelData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} />
                         <XAxis dataKey="name" tick={{ fontSize: 12 }} />
                         <YAxis unit="%" tick={{ fontSize: 12 }} />

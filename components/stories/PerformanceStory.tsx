@@ -11,7 +11,7 @@ const performanceData = [
     { wlb: '4 (Best)', excellent: 83.9, outstanding: 16.1 }
 ];
 
-export default function PerformanceStory() {
+export default function PerformanceStory({ data }: { data?: any[] }) {
     return (
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -21,9 +21,9 @@ export default function PerformanceStory() {
             <p className="text-sm text-neutral-500 mb-6 line-clamp-2">
                 Top performance is consistent across all Work-Life Balance scores. Making employees overwork does not guarantee performance.
             </p>
-            <div className="h-64 mt-auto">
+            <div className="h-64 mt-auto w-full min-w-0">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={performanceData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }} layout="vertical">
+                    <BarChart data={data || performanceData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }} layout="vertical">
                         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                         <XAxis type="number" unit="%" tick={{ fontSize: 12 }} />
                         <YAxis dataKey="wlb" type="category" width={80} tick={{ fontSize: 11 }} />
